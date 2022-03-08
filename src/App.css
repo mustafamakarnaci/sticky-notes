@@ -1,38 +1,227 @@
-.App {
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.screen {
+  background: #eee;
+  overflow: auto;
+}
+
+.screen.editable {
+  cursor: url('../public/assets/icons8-plus-+-24.png') 12 12, move;
+}
+
+.leave-comment-text {
+  background: rgba(51, 51, 51, 0.637);
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 2px;
+  padding: 5px 10px;
+  transform: translateX(10%) translateY(-50%);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.note-container {
+  background: var(--color);
+  margin-top: 40px;
+  transform: translate(-50%);
+  border-radius: 4px;
+  width: 300px;
+  margin-left: -150px;
+}
+
+.note-container .note {
+  display: flex;
+  flex-direction: column;
+  padding: 7px 7px;
+  color: #eee;
+}
+
+.note-container .note2 {
+  display: flex;
+  padding: 7px 7px;
+  color: #eee;
+}
+
+.note-container .edit {
+  display: flex;
+  width: 100%;
+}
+
+.note-container .edit .edit-button {
+  border-radius: 4px;
+  padding: 5px;
+  margin: 10px 10px;
+  width: 100%;
+  background-color: #eee;
+}
+
+.note-container .edit .edit-confirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(24, 128, 212);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 10px 10px;
+  width: 100%;
+  background-color: #eee;
+  margin: 5px;
+}
+
+.note-container .edit .edit-confirm:hover {
+  border: solid 2px rgb(24, 128, 212);
+  cursor: pointer;
+}
+
+.note-container .edit .edit-cancel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(212, 24, 40);
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 10px 10px;
+  width: 100%;
+  background-color: #eee;
+  margin: 5px;
+}
+
+.note-container .edit .edit-cancel:hover {
+  border: solid 2px rgb(212, 24, 40);
+  cursor: pointer;
+}
+
+.note-container .edit .edit-confirm:disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+.icon-ad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.icon-ad a {
+  margin: 2px 3px;
+  display: flex;
+  text-decoration: none;
+
+  font-size: 20px;
+  color: rgb(212, 24, 40);
+  background-color: #eee;
+}
+.info {
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  font-weight: 700;
+  color: #eee;
+  letter-spacing: 1.2px;
+}
+
+.wallpaper {
+  opacity: 0.9;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.note-box {
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  transform: translateX(-50%) translateY(17%);
+  z-index: 4;
+  width: 300px;
+}
+
+.note-box select {
+  appearance: none;
+  border-radius: 3px;
+  width: 100%;
+  height: 40px;
+  padding: 0 30px;
+  color: #fff;
+  background: var(--color);
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.note-box textarea {
+  border-radius: 4px;
+  border: 1px solid var(--color);
+  width: 100%;
+  border-top: 0;
+  padding: 15px;
+  resize: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.note-box textarea:focus {
+  border-color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.note-box-number {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-140%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color);
+  color: #eee;
+  font-weight: 500;
+  text-align: center;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  opacity: 0.7;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.note-box-number:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.note-box button {
+  width: 100%;
+  border: 2px solid rgb(66, 66, 66);
+  background: rgb(66, 66, 66);
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #eee;
+  border-radius: 5px;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+
+.note-box button:hover {
+  border: 2px solid rgb(66, 66, 66);
+  background: #eee;
+  color: rgb(66, 66, 66);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.note-box button:disabled {
+  opacity: 0.2;
+  pointer-events: none;
 }
